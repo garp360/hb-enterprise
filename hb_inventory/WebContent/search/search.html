@@ -1,0 +1,76 @@
+<script type="text/ng-template" id="nodes_renderer.html">
+  <div ui-tree-handle class="tree-node tree-node-content">
+    <a class="btn btn-default btn-tlbr" ng-if="node.permissions && node.permissions.length > 0" data-nodrag ng-click="toggle(this)"><span
+        class="fa"
+        ng-class="{
+          'fa-plus': collapsed,
+          'fa-minus': !collapsed
+        }"></span></a>
+    {{node.name}}
+	<span class="pull-right">
+		<a class="btn btn-default btn-tlbr" data-nodrag ng-click="remove(this)"><i class="fa fa-times text-danger"></i></a>
+		<a class="btn btn-default btn-tlbr" data-nodrag ng-click="newSubItem(this)"><i class="fa fa-plus text-success"></i></a>
+	</span>
+  </div>
+  <ol ui-tree-nodes="" ng-model="node.permissions" ng-class="{hidden: collapsed}">
+    <li ng-repeat="node in node.permissions" ui-tree-node ng-include="'nodes_renderer.html'">
+    </li>
+  </ol>
+</script>
+
+<div ng-class="isSimpleSearch ? 'form-container search-form simple' : 'form-container search-form advanced'">
+	<form ng-show="isSimpleSearch">
+		<div class="form-group inline">
+			<label class="control-label">Global</label>
+			<div>
+				<input type="text" ng-model="criteria.simple" class="form-control" style="width:300px;">
+			</div>
+			<div>
+				<button ng-click="search()" class="btn btn-default btn-xs">Search</button>
+			</div>
+			<div>
+				<button ng-click="clear()" class="btn btn-default btn-xs">Clear</button>
+			</div>
+			<div>
+				<button ng-click="toggleSearch()" class="btn btn-default btn-xs">Advanced</button>
+			</div>
+		</div>
+	</form>
+	<form ng-show="!isSimpleSearch">
+		<div class="form-group inline">
+			<label for="name" class="control-label">Group:</label>
+			<div>
+				<input type="text" ng-model="criteria.group" class="form-control" style="width:300px;">
+			</div>
+			<div>
+				<button ng-click="search()" class="btn btn-default btn-xs">Search</button>
+			</div>
+			<div>
+				<button ng-click="clear()" class="btn btn-default btn-xs">Clear</button>
+			</div>
+			<div>
+				<button ng-click="toggleSearch()" class="btn btn-default btn-xs">Simple</button>
+			</div>
+		</div>
+		<div class="form-group inline">
+			<label for="permission" class="control-label">Permission:</label>
+			<div>
+				<input type="text" ng-model="criteria.permission" class="form-control" style="width:300px;">
+			</div>
+		</div>
+	</form>
+</div>
+<div ng-class="isSimpleSearch ? 'search-results simple': 'search-results advanced'">
+<div class="row">
+  <div class="col-sm-6">
+	<div class="tabular-data">
+		<div ui-tree id="tree-root">
+      <ol ui-tree-nodes ng-model="results.data">
+        <li ng-repeat="node in results.data" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+      </ol>
+    </div>
+    
+    </div>
+    </div>
+	</div>
+</div>

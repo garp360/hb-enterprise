@@ -1,0 +1,39 @@
+<!doctype html>
+<html ng-app="ndms.conops.group">
+<head>
+	<title>{{app.title}}</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1" />
+<!-- ------------------------------------------------------------------------------------------------- -->
+<!-- ------------ VENDOR ----------------------------------------------------------------------------- -->
+<!-- ------------------------------------------------------------------------------------------------- -->
+	<script type='text/javascript' src="vendor/angular-js/1.4.1/angular.js"></script>
+	<script type='text/javascript' src="vendor/angular-js/1.4.1/angular-animate.js"></script>
+	<script type='text/javascript' src="vendor/angular-js/1.4.1/angular-aria.js"></script>
+	<script type='text/javascript' src="vendor/angular-js/1.4.1/angular-messages.js"></script>
+	<script type='text/javascript' src="vendor/angular-js/1.4.1/angular-sanitize.js"></script>
+	<script type='text/javascript' src="vendor/angular-js/1.4.1/angular-touch.js"></script>
+	<script type='text/javascript' src="vendor/angular-ui-router/2.1.4/angular-ui-router.js"></script>
+	<script type='text/javascript' src="vendor/moment/2.10.3/moment.js"></script>
+	<script type='text/javascript' src="http://localhost:7101/ux/lib/conops-hosted.js"></script>
+<!-- ------------------------------------------------------------------------------------------------- -->
+<!-- ------------ APPLICATION ------------------------------------------------------------------------ -->
+<!-- ------------------------------------------------------------------------------------------------- -->	
+	<script type='text/javascript' src="app.js"></script>
+	<script type='text/javascript' src="app.route.js"></script>	
+	<script type='text/javascript' src="search/search.controller.js"></script>	
+	<script type='text/javascript' src="search/search.factory.js"></script>	
+	<link rel="stylesheet" href="vendor/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,700" rel="stylesheet" type="text/css" />
+	<link href='https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,400italic,600italic,700,700italic' rel='stylesheet' type='text/css'>
+	<link href="vendor/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="http://localhost:7101/ux/style/conops_bs_reformat.css"/>
+	<link rel="stylesheet" href="http://localhost:7101/ux/style/conops_hosted.css"/>
+	<link rel="stylesheet" href="http://localhost:7101/ux/style/conops_hosted_tables.css"/>
+	<link rel="stylesheet" href="style/app.css"/>
+<!-- ------------------------------------------------------------------------------------------------- -->
+</head>
+<body>
+	<div class="conops" ui-view></div>
+</body>
+</html>

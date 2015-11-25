@@ -1,0 +1,36 @@
+div.search-form, div.search-results {
+	position: absolute;
+	left: 3px;
+	right: 3px;
+}
+
+div.search-form.simple {
+	top: 3px;
+	height: 60px;
+}
+
+div.search-form.advanced {
+	top: 3px;
+	height: 160px;
+}
+
+div.search-results.simple {
+	top: 66px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	border-top: 1px solid #999999;
+}
+
+div.search-results.advanced {
+	top: 166px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	border-top: 1px solid #999999;
+}
+
+div.form-container.search-form.simple .control-label,
+div.form-container.search-form.advanced .control-label {
+	width: 120px;
+}
