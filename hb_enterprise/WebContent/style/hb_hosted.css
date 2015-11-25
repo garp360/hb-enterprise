@@ -1,0 +1,109 @@
+html, body, div.hb-app {
+	position: absolute;
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	background-color: #DEDEDE;
+}
+
+body>div.hb-app>div.header {
+	position: absolute;
+	top:0px;
+	left:0px;
+	right:0px;
+	height:30px;
+	background: #000;
+	color: #efefef;
+	border:none;
+	border-bottom:1px solid #EEE;
+	padding-top:4px;
+	font-size:1em;
+	font-family: sans-serif;
+}
+
+body>div.hb-app>div.header table.app-info td  {
+	text-align: right;
+	padding: 0px 5px;
+}
+
+body>div.hb-app>div.header table.logon-info td  {
+	text-align: right;
+	padding: 0px 5px;
+}
+
+body>div.hb-app>div.header table.logon-info td>a  {
+	color: inherit;
+	padding: 0px 5px;
+}
+
+body>div.hb-app>div.toolbar {
+	position: absolute;
+	top:32px;
+	left:3px;
+	right:3px;
+	height:60px;
+	background: transparent;
+	border:1px solid #999;
+}
+
+body>div.hb-app>div.content {
+	position: absolute;
+	top:98px;
+	left:8px;
+	right:8px;
+	bottom: 44px;
+	background: #FFF;
+	border:1px solid #999;
+	overflow: hidden;
+}
+
+body>div.hb-app>div.content.no-toolbar {
+	top:35px;
+}
+
+body>div.hb-app>div.content>div.form-container {
+	border:1px solid #999;
+	background-color: #DEDEDE;
+	padding:10px;
+}
+
+div.form-group.inline>div>button {
+	margin-left: 5px;
+}
+
+body>div.hb-app>div.footer {
+	position: absolute;
+	bottom:0px;
+	left:0px;
+	right:0px;
+	height: 40px;
+	background: transparent;
+	border:none;
+}
+
+.control-label {
+	padding: 6px 6px 0px 0px;
+}
+
+form>div.button-tray {
+	clear: both;
+	width:100%;
+	height: 34px;
+}
+
+form>div.button-tray>div.left {
+	float:left;
+}
+form>div.button-tray>div.right {
+	float:right;
+}
+
+.btn-group-xs > .btn, .btn-tlbr {
+    padding: 4px 6px;
+    font-size: 12px;
+    line-height: 1;
+    border-radius: 3px;
+    margin: 2px;
+}

@@ -1,0 +1,38 @@
+<!doctype html>
+<html ng-app="hb.enterprise.surgica">
+<head>
+	<title>SURGICA-hb v1.0.0</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1" />
+<!-- ------------------------------------------------------------------------------------------------- -->
+<!-- ------------ VENDOR ----------------------------------------------------------------------------- -->
+<!-- ------------------------------------------------------------------------------------------------- -->
+	<script type='text/javascript' src="vendor/angular-js/1.4.1/angular.js"></script>
+	<script type='text/javascript' src="vendor/angular-js/1.4.1/angular-animate.js"></script>
+	<script type='text/javascript' src="vendor/angular-js/1.4.1/angular-aria.js"></script>
+	<script type='text/javascript' src="vendor/angular-js/1.4.1/angular-messages.js"></script>
+	<script type='text/javascript' src="vendor/angular-js/1.4.1/angular-sanitize.js"></script>
+	<script type='text/javascript' src="vendor/angular-js/1.4.1/angular-touch.js"></script>
+	<script type='text/javascript' src="vendor/angular-ui-router/2.1.4/angular-ui-router.js"></script>
+	<script type='text/javascript' src="vendor/moment/2.10.3/moment.js"></script>
+<!-- ------------------------------------------------------------------------------------------------- -->
+<!-- ------------ APPLICATION ------------------------------------------------------------------------ -->
+<!-- ------------------------------------------------------------------------------------------------- -->
+	<script type='text/javascript' src="app.js"></script>
+	<script type='text/javascript' src="app.route.js"></script>	
+	<script type='text/javascript' src="_partial/banner/banner.controller.js"></script>
+	<script type='text/javascript' src="_partial/footer/footer.controller.js"></script>
+	<script type='text/javascript' src="_partial/header/header.controller.js"></script>
+	<script type='text/javascript' src="_partial/toolbar/toolbar.controller.js"></script>
+	<script type='text/javascript' src="_partial/dashboard/dashboard.controller.js"></script>
+	<script type='text/javascript' src="surgica.controller.js"></script>
+	<link href="vendor/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="vendor/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style/hb_bs_reformat.css"/>
+	<link rel="stylesheet" href="style/app.css"/>
+<!-- ------------------------------------------------------------------------------------------------- -->
+</head>
+<body>
+	<div class="hb-app" ui-view></div>
+</body>
+</html>

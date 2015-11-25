@@ -1,0 +1,144 @@
+div.tabular-data {
+	position: absolute;
+	width: 100%;
+	height:100%;
+}
+
+div.tabular-data>div.tabular-data-toolbar,
+div.tabular-data>div.tabular-data-header,
+div.tabular-data>div.tabular-data-footer,
+div.tabular-data>div.tabular-data-content {
+	position: absolute;
+	left:0px;
+}
+
+div.tabular-data>div.tabular-data-toolbar,
+div.tabular-data>div.tabular-data-header,
+div.tabular-data>div.tabular-data-footer {
+	width: 100%;
+	height:30px;
+	background-color: transparent;	
+}
+
+div.tabular-data>div.tabular-data-toolbar {
+	top:0px;
+	border-bottom: 1px solid #999999;
+	background-color: #CFCFCF;
+	padding: 0px 5px;
+}
+
+div.tabular-data>div.tabular-data-toolbar>table {
+	width: 100%;
+}
+
+div.tabular-data>div.tabular-data-header {
+	top:30px;
+	border-bottom: 1px solid #999999;
+}
+
+div.tabular-data>div.tabular-data-content {
+	top: 60px;
+	bottom: 30px;
+	right: 0px;
+	overflow: auto;
+}
+
+div.tabular-data>div.tabular-data-footer {
+	bottom:0px;
+	border-top: 1px solid #999999;
+}
+
+div.tabular-data>div.tabular-data-header>table,
+div.tabular-data>div.tabular-data-content>table,
+div.tabular-data>div.tabular-data-footer>table {
+	table-layout: fixed;
+	width:100%;
+	border-collapse: separate;
+	border-spacing: 0px;
+}
+
+div.tabular-data>div.tabular-data-header {
+	background-color: red;
+	margin:0px;
+	padding: 0px;
+}
+
+
+div.tabular-data>div.tabular-data-header>table,
+div.tabular-data>div.tabular-data-footer>table {
+	height: 30px;
+	border: none;
+	border-width: 0px;
+}
+
+div.tabular-data>div.tabular-data-header>table>tbody>tr>th, 
+div.tabular-data>div.tabular-data-header>table>tbody>tr>td {
+	padding: 3px 5px;
+	border-right: 1px solid #f1f1f1;
+	border-bottom: 1px solid #a1a1a1;
+	border-left: 1px solid #a1a1a1;
+	background-color: #CFCFCF;
+	text-align: center;
+}
+
+div.tabular-data>div.tabular-data-footer>table>tbody>tr>th, 
+div.tabular-data>div.tabular-data-footer>table>tbody>tr>td {
+	padding: 3px 5px;
+	border: none;
+	border-width: 0px;
+	background-color: #CFCFCF;
+	text-align: center;
+}
+
+
+div.tabular-data>div.tabular-data-content>table>tbody>tr>th, 
+div.tabular-data>div.tabular-data-content>table>tbody>tr>td,
+div.tabular-data>div.tabular-data-content>table.no-data>tbody>tr>th,
+div.tabular-data>div.tabular-data-content>table.no-data>tbody>tr>td {
+	padding: 20px;
+	border: none;
+	border-width: 0px;
+	background-color: transparent;
+	text-align: center;
+}
+
+div.tabular-data>div.tabular-data-content>table>tbody>tr>th, 
+div.tabular-data>div.tabular-data-content>table>tbody>tr>td {
+	padding: 3px 5px;
+	border-right: 1px solid #f1f1f1;
+	border-bottom: 1px solid #a1a1a1;
+	border-left: 1px solid #a1a1a1;
+	background-color: transparent;
+	text-align: center;
+}
+
+div.tabular-data>div.tabular-data-header>table>tbody>tr>th:first-child, 
+div.tabular-data>div.tabular-data-header>table>tbody>tr>td:first-child,
+div.tabular-data>div.tabular-data-footer>table>tbody>tr>th:first-child, 
+div.tabular-data>div.tabular-data-footer>table>tbody>tr>td:first-child,
+div.tabular-data>div.tabular-data-content>table>tbody>tr>th:first-child, 
+div.tabular-data>div.tabular-data-content>table>tbody>tr>td:first-child {
+	border-left-width: 0px;
+}
+
+div.tabular-data>div.tabular-data-header>table>tbody>tr>th:last-child, 
+div.tabular-data>div.tabular-data-header>table>tbody>tr>td:last-child,
+div.tabular-data>div.tabular-data-footer>table>tbody>tr>th:last-child, 
+div.tabular-data>div.tabular-data-footer>table>tbody>tr>td:last-child,
+div.tabular-data>div.tabular-data-content>table>tbody>tr>th:last-child, 
+div.tabular-data>div.tabular-data-content>table>tbody>tr>td:last-child {
+	border-right-width: 0px;
+}
+
+div.tabular-data>div.tabular-data-content>table>tbody>tr>th.fill, 
+div.tabular-data>div.tabular-data-content>table>tbody>tr>td.fill {
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	background-color: #f5f5f5;
+	border-left: 1px solid #a1a1a1;
+}
+
+div.tabular-data>div.tabular-data-header>table>tbody>th.align-left, 
+div.tabular-data>div.tabular-data-header>table>tbody>td.align-left {
+	text-align: left;
+}

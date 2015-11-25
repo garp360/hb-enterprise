@@ -1,0 +1,104 @@
+<div class="form-container search-form">
+	<form>
+		<div class="form-group inline">
+			<label for="smartcard" class="control-label">SmartCard:</label>
+			<div>
+				<input type="text" ng-model="criteria.smartcard" class="form-control" style="width:300px;" id="cog">
+			</div>
+			<div>
+				<button ng-click="search()" class="btn btn-default btn-xs">Search</button>
+			</div>
+			<div>
+				<button ng-click="clear()" class="btn btn-default btn-xs">Clear</button>
+			</div>
+		</div>
+		<div class="form-group inline">
+			<label for="surgeon" class="control-label">Surgeon:</label>
+			<div>
+				<input type="text" ng-model="criteria.surgeon" class="form-control" style="width:300px;" id="cog">
+			</div>
+		</div>
+		<div class="form-group inline">
+			<label for="procedure" class="control-label">Procedure:</label>
+			<div>
+				<input type="text" ng-model="criteria.procedure" class="form-control" style="width:300px;" id="cog">
+			</div>
+		</div>
+	</form>
+</div>
+<div class="search-results">
+	<div class="tabular-data">
+		<div class="tabular-data-toolbar">
+			<table>
+				<tr>
+					<td align="right">
+						<button class="btn btn-default btn-tlbr" ng-click="remove()"><i class="fa fa-times fa-lg text-danger"></i></button>
+						<button class="btn btn-default btn-tlbr" ng-click="add()"><i class="fa fa-plus fa-lg text-success"></i></button>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="tabular-data-header">
+			<table>
+				<colgroup>
+					<col width="40">
+					<col width="40">					
+					<col width="100">
+					<col width="120">
+					<col width="120">
+					<col width="100">
+					<col>
+				</colgroup>
+				<tbody>
+					<th></th>
+					<th>
+						<input ng-disabled="!results || results.length <= 0" ng-checked="toggleAll()" ng-model="globalSelect" type="checkbox">
+					</th>
+					<th>SmartCard</th>
+					<th>Surgeon</th>
+					<th>Procedure</th>
+					<th>DLR</th>
+					<th class="fill"></th>
+				</tbody>
+			</table>
+		</div>
+		<div class="tabular-data-content">
+			<table class="no-data" ng-show="results.length == 0">
+				<tr>
+					<th>No records matching criteria</th>
+				</tr>
+			</table>
+			<table ng-show="results.length > 0">
+				<colgroup>
+					<col width="40">
+					<col width="40">
+					<col width="100">
+					<col width="120">
+					<col width="120">
+					<col width="100">
+					<col>
+				</colgroup>
+				<tbody>
+					<tr ng-repeat="cog in filtered = (results | filter:filter)">
+						<td align="center">{{$index + 1}}</td>
+						<td>
+							<input ng-checked="cog.selected" type="checkbox">
+						</td>
+						<td align="center">{{cog.code}}</td>
+						<td align="center">{{cog.dmFundCode}}</td>
+						<td align="center">{{translateTrueFalse(cog.furnished)}}</td>
+						<td align="center">{{translateTrueFalse(cog.dlr)}}</td>
+						<td class="fill"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="tabular-data-footer">
+			<table>
+				<tbody>
+					<th>{{filtered.length}} of {{cogs.length}}</th>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
