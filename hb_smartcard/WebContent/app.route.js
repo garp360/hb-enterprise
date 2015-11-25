@@ -32,7 +32,7 @@
 						},
 						header : function(user, site, lastLogin) {
 							return {
-								title: "Data Management - COG",
+								title: "Surgical Smart Card System",
 								version: "2.0.0",
 								urls: {
 									help: "https://frc-web2d.navair.navy.mil/conops/contextHelp?",
@@ -41,7 +41,7 @@
 								user: user,
 								site: site,
 								lastLogin: lastLogin
-							}
+							};
 						}
 					}
 				},
@@ -55,7 +55,7 @@
 						footer : function() {
 							return {
 								text: ""
-							}
+							};
 						}
 					}
 				},
@@ -81,7 +81,7 @@
 									],
 									current : {}
 								}
-							}
+							};
 							
 							optionData.furnished.current = optionData.furnished.values[0];
 							optionData.dlr.current = optionData.dlr.values[0];
@@ -95,20 +95,23 @@
 							return { };
 						},
 						cogs: function() {
-							var cogs = [];
+							var data = [];
 							var lib = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 							for(var i=0; i<1000; i++)
 							{
 								var r1 = Math.abs(Math.floor(Math.random() * (0 - lib.length + 1)) + 0);
 								var r2 = Math.abs(Math.floor(Math.random() * (0 - lib.length + 1)) + 0);
-								var code = lib[r1].toString() + lib[r2].toString();
+								var r3 = Math.abs(Math.floor(Math.random() * (0 - lib.length + 1)) + 0);
+								var r4 = Math.abs(Math.floor(Math.random() * (0 - lib.length + 1)) + 0);
+								var code = lib[r1].toString() + lib[r2].toString() + lib[r3].toString() + lib[r4].toString();
 																
 								var id = i * 1789288;
 								
-								cogs.push({id: id, selected: false, code: code, dmFundCode: "GC", furnished: true, dlr: false})
+								data.push({id: id, selected: false, code: code, name: code, surgeon: [code], permission: [code]});
 							}
 							
-							return cogs;
+							console.log(JSON.stringify(data, null, 2));
+							return data;
 						}
 					}
 				}

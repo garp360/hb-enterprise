@@ -50,15 +50,17 @@
 					<col>
 				</colgroup>
 				<tbody>
-					<th></th>
-					<th>
-						<input ng-disabled="!results || results.length <= 0" ng-checked="toggleAll()" ng-model="globalSelect" type="checkbox">
-					</th>
-					<th>SmartCard</th>
-					<th>Surgeon</th>
-					<th>Procedure</th>
-					<th>DLR</th>
-					<th class="fill"></th>
+					<tr>
+						<th></th>
+						<th>
+							<input ng-disabled="!results || results.length <= 0" ng-checked="toggleAll()" ng-model="globalSelect" type="checkbox">
+						</th>
+						<th>SmartCard</th>
+						<th>Surgeon</th>
+						<th>Procedure</th>
+						<th>DLR</th>
+						<th class="fill"></th>
+					</tr>
 				</tbody>
 			</table>
 		</div>
@@ -96,7 +98,9 @@
 		<div class="tabular-data-footer">
 			<table>
 				<tbody>
-					<th>{{filtered.length}} of {{cogs.length}}</th>
+					<tr>
+						<th>{{filtered.length}} of {{cogs.length}}</th>
+					</tr>
 				</tbody>
 			</table>
 		</div>
