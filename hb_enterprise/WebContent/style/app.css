@@ -118,10 +118,11 @@ div#apps-container>div  {
 }
 
 div#apps-container>div>a{
-  padding: 5px 20px 5px 5px;
+  padding: 10px;
   margin: 10px;
   border:1px solid #333333;
-  min-height: 58px;
+  min-height: 25px;
+  min-width:120px;
 }
 
 .list-group-item.ndms-image-button {
