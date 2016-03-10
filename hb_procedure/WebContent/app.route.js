@@ -1,21 +1,19 @@
 (function() {
     'use strict';
     
-    angular.module('ndms.conops.group')
+    angular.module('hb.enterprise.surgica.data.procedure')
 	.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 	    
-		$urlRouterProvider.otherwise('/');
+		$urlRouterProvider.otherwise('/data/search');
 	 
 	    $stateProvider
 		
-		.state('conops_group', {   
-			url : '/',
+		.state('data', { 
+			abstract: true,
+			url : '/data',
 			views: {
-				'': {
-					templateUrl: 'conops_group.html'
-				},
-				'header@conops_group' : {
-					templateUrl: 'http://localhost:7101/ux/_partial/header/header.html',
+				'header' : {
+					templateUrl: 'http://localhost:9665/hb/surgica/_partial/header/header.html',
 					controller: 'HeaderController',
 					resolve: {
 						site: function() {
@@ -25,50 +23,56 @@
 							return {
 								name: "Garth Pidcock",
 								dn: "CN=PIDCOCK.GARTH.J.1365524544, OU=CONTRACTOR, OU=PKI, OU=DoD, O=U.S. Government, C=US"
-							}
+							};
 						},
 						lastLogin: function() {
 							return moment.utc().subtract(2, 'days');
 						},
 						header : function(user, site, lastLogin) {
 							return {
-								title: "Data Management - COG",
+								title: "Data Management - Surgical Procedures (Px)",
 								version: "2.0.0",
 								urls: {
-									help: "https://frc-web2d.navair.navy.mil/conops/contextHelp?",
-									about: "https://frc-web2d.navair.navy.mil/conops/aboutInfo?"
+									help: "#",
+									about: "#"
 								},								
 								user: user,
 								site: site,
 								lastLogin: lastLogin
-							}
+							};
 						}
 					}
 				},
-				'toolbar@conops_group' : {
-					templateUrl: 'http://localhost:7101/ux/_partial/toolbar/toolbar.html'
+				'content' : {
+					template: '<div ui-view></div>'
 				},
-				'footer@conops_group' : {
-					templateUrl: 'http://localhost:7101/ux/_partial/footer/footer.html',
+				'footer' : {
+					templateUrl: 'http://localhost:9665/hb/surgica/_partial/footer/footer.html',
 					controller: 'FooterController',
 					resolve: {
 						footer : function() {
 							return {
 								text: ""
-							}
-						}
-					}
-				},
-				'search@conops_group' : {
-					templateUrl: 'search/search.html',
-					controller: 'SearchController',
-					resolve: {
-						criteria : function() {
-							return { };
+							};
 						}
 					}
 				}
 			}
+		})
+		.state('data.search', {
+			url : '/search',
+			templateUrl: 'procedure/search/search.html',
+			controller: 'SearchController',
+			resolve: {
+				criteria : function() {
+					return { };
+				}
+			}
+		})
+		.state('data.edit', {
+			url : '/edit',
+			templateUrl: 'procedure/detail/detail.html',
+			controller: 'DetailController'
 		});
 	       
 	}]); 

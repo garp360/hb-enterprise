@@ -63,7 +63,7 @@ body>div.hb-app>div.content.no-toolbar {
 	top:35px;
 }
 
-body>div.hb-app>div.content>div.form-container {
+div.form-container {
 	border:1px solid #999;
 	background-color: #DEDEDE;
 	padding:10px;

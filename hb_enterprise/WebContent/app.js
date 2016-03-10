@@ -2,6 +2,6 @@
     'use strict';
     
    angular
-   .module('hb.enterprise.surgica', ['ui.router', 'ngMessages'])
+   .module('hb.enterprise.surgica', ['ui.router', 'ngMessages']);
 
 })();

@@ -1,11 +1,11 @@
 (function() {
 	'use strict';
 
-	angular.module('ndms.conops.group').controller('SearchController', SearchController);
+	angular.module('hb.enterprise.surgica.data.procedure').controller('SearchController', SearchController);
 
-	SearchController.$inject = [ '$scope', '$log', 'criteria', 'ConopsGroupFactory' ];
+	SearchController.$inject = [ '$scope', '$log', 'criteria', 'ProcedureFactory' ];
 
-	function SearchController($scope, $log, criteria, ConopsGroupFactory) 
+	function SearchController($scope, $log, criteria, ProcedureFactory) 
 	{
 		// variables
 		$scope.criteria = criteria;
@@ -27,7 +27,7 @@
 		function search() 
 		{
 			var criteria = buildCriteria();
-			$scope.results = ConopsGroupFactory.findConopsGroupByCriteria(criteria);
+			$scope.results = ProcedureFactory.findConopsGroupByCriteria(criteria);
 			$scope.globalSelect = false;
 		};
 		

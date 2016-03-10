@@ -1,0 +1,122 @@
+<div ng-class="isSimpleSearch ? 'form-container search-form simple' : 'form-container search-form advanced'">
+	<form ng-show="isSimpleSearch">
+		<div class="form-group inline">
+			<label class="control-label">Global</label>
+			<div>
+				<input type="text" ng-model="criteria.simple" class="form-control" style="width:300px;">
+			</div>
+			<div>
+				<button ng-click="search()" class="btn btn-default btn-xs">Search</button>
+			</div>
+			<div>
+				<button ng-click="clear()" class="btn btn-default btn-xs">Clear</button>
+			</div>
+			<div>
+				<button ng-click="toggleSearch()" class="btn btn-default btn-xs">Advanced</button>
+			</div>
+		</div>
+	</form>
+	<form ng-show="!isSimpleSearch">
+		<div class="form-group inline">
+			<label for="name" class="control-label">Group:</label>
+			<div>
+				<input type="text" ng-model="criteria.group" class="form-control" style="width:300px;">
+			</div>
+			<div>
+				<button ng-click="search()" class="btn btn-default btn-xs">Search</button>
+			</div>
+			<div>
+				<button ng-click="clear()" class="btn btn-default btn-xs">Clear</button>
+			</div>
+			<div>
+				<button ng-click="toggleSearch()" class="btn btn-default btn-xs">Simple</button>
+			</div>
+		</div>
+		<div class="form-group inline">
+			<label for="permission" class="control-label">Permission:</label>
+			<div>
+				<input type="text" ng-model="criteria.permission" class="form-control" style="width:300px;">
+			</div>
+		</div>
+		<div class="form-group inline">
+			<label for="dn" class="control-label">User DN:</label>
+			<div>
+				<input type="text" ng-model="criteria.dn" class="form-control" style="width:300px;">
+			</div>
+		</div>
+		<div class="form-group inline">
+			<label for="lastname" class="control-label">User Last Name:</label>
+			<div>
+				<input type="text" ng-model="criteria.lastname" class="form-control" style="width:300px;">
+			</div>
+		</div>
+	</form>
+</div>
+<div ng-class="isSimpleSearch ? 'search-results simple': 'search-results advanced'">
+	<div class="tabular-data">
+		<div class="tabular-data-toolbar">
+			<table>
+				<tr>
+					<td align="right">
+						<button class="btn btn-default btn-tlbr" ng-click="remove()"><i class="fa fa-times fa-lg text-danger"></i></button>
+						<button class="btn btn-default btn-tlbr" ng-click="add()"><i class="fa fa-plus fa-lg text-success"></i></button>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="tabular-data-header">
+			<table>
+				<colgroup>
+					<col width="40">
+					<col width="40">					
+					<col width="250">
+					<col>
+				</colgroup>
+				<tbody>
+					<tr>
+						<th></th>
+						<th>
+							<input ng-disabled="!results || !results.data || results.data.length <= 0" ng-checked="toggleAll()" ng-model="globalSelect" type="checkbox">
+						</th>
+						<th>Group</th>
+						<th>Comment</th>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="tabular-data-content">
+			<table class="no-data" ng-show="!results || !results.data || results.data.length <= 0">
+				<tr>
+					<th>No records matching criteria</th>
+				</tr>
+			</table>
+			<table ng-show="results && results.data && results.data.length > 0">
+				<colgroup>
+					<col width="40">
+					<col width="40">
+					<col width="250">
+					<col>
+				</colgroup>
+				<tbody>
+					<tr ng-repeat="group in results.data">
+						<td align="center">{{$index + 1}}</td>
+						<td>
+							<input ng-checked="group.selected" type="checkbox">
+						</td>
+						<td class="align-left">{{group.name}}</td>
+						<td class="align-left">{{group.comment}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="tabular-data-footer">
+			<table>
+				<tbody>
+					<tr>
+						<th><span ng-show="results && results.totalRecords > 0">{{results.data.length}} of {{results.totalRecords}}</span></th>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

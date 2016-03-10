@@ -2,6 +2,6 @@
 	'use strict';
 
 	angular
-	.module('ndms.conops.group', [ 'ui.router', 'ngMessages', 'ndms.conops.hosted' ]);
+	.module('hb.enterprise.surgica.data.procedure', [ 'ui.router', 'ngMessages', 'hb.enterprise.hosted' ]);
 
 })();
