@@ -69,11 +69,34 @@
 				}
 			}
 		})
-		.state('data.edit', {
-			url : '/edit',
+		.state('data.search.add', {
+			url : '/',
+			modal: true,
 			templateUrl: 'procedure/detail/detail.html',
-			controller: 'DetailController'
+			controller: 'DetailController',
+			resolve: {
+				title : function() {
+					return "Create Procedure";
+				},
+				procedure : function() {
+					return { };
+				}
+			}
+		})
+		.state('data.search.edit', {
+			url : '/:id',
+			modal: true,
+			templateUrl: 'procedure/detail/detail.html',
+			controller: 'DetailController',
+			resolve: {
+				procedure : function($stateParams, ProcedureFactory) {
+					return ProcedureFactory.findById($stateParams.id);
+				},
+				title : function(procedure) {
+					return "Edit Procedure [" + procedure .name + "]";
+				}
+			}
 		});
 	       
 	}]); 
-})();
+})();		

@@ -138,7 +138,9 @@ div.tabular-data>div.tabular-data-content>table>tbody>tr>td.fill {
 	border-left: 1px solid #a1a1a1;
 }
 
-div.tabular-data>div.tabular-data-header>table>tbody>th.align-left, 
-div.tabular-data>div.tabular-data-header>table>tbody>td.align-left {
+div.tabular-data>div.tabular-data-content>table>tbody>tr>th.align-left, 
+div.tabular-data>div.tabular-data-content>table>tbody>tr>td.align-left,
+div.tabular-data>div.tabular-data-header>table>tbody>tr>th.align-left, 
+div.tabular-data>div.tabular-data-header>table>tbody>tr>td.align-left {
 	text-align: left;
 }

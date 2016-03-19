@@ -8,12 +8,11 @@
 	function SearchController($scope, $log, criteria, ProcedureFactory) 
 	{
 		// variables
+		$scope.errorMessage = null;
 		$scope.criteria = criteria;
-		$scope.results = {};
+		$scope.result = { };
 		$scope.isSimpleSearch = true;
-		$scope.globalSelect = false;
-		
-		
+
 		// methods
 		$scope.search = search;
 		$scope.clear = clear;
@@ -27,15 +26,18 @@
 		function search() 
 		{
 			var criteria = buildCriteria();
-			$scope.results = ProcedureFactory.findConopsGroupByCriteria(criteria);
-			$scope.globalSelect = false;
+			ProcedureFactory.findByCriteria(criteria).then(function(procedures){
+				$scope.result = procedures;
+			}, function(errMsg) {
+				$scope.errorMessage = errMsg;
+			});
 		};
 		
 		function clear() 
 		{
-			$scope.criteria = {};
-			$scope.results = [];
-			$scope.globalSelect = false;
+			$scope.criteria = { };
+			$scope.result = { };
+			$scope.errorMessage = null;
 		};
 		
 		function add() {
@@ -57,13 +59,12 @@
 		function toggleSearch()
 		{
 			$scope.isSimpleSearch = !$scope.isSimpleSearch;
-			if($scope.isSimpleSearch) {
-				criteria.group = null;
-				criteria.permission = null;
-				criteria.dn = null;
-				criteria.lastname = null;
+			clear();
+			
+			if ( $scope.isSimpleSearch ) {
+				criteria.isSimpleSearch = true;
 			} else {
-				criteria.simple = null;
+				criteria.isSimpleSearch = false;
 			}
 		};
 
@@ -73,17 +74,15 @@
 			criteria.isSimpleSearch = $scope.isSimpleSearch;
 			if(criteria.isSimpleSearch)
 			{
-				criteria.group = $scope.criteria.simple;
-				criteria.permission = $scope.criteria.simple;
-				criteria.dn = $scope.criteria.simple;
-				criteria.lastname = $scope.criteria.simple;
+				criteria.name = $scope.criteria.simple;
+				criteria.code = $scope.criteria.simple;
+				criteria.category = $scope.criteria.simple;
 			} 
 			else 
 			{
-				addCriteria(criteria, "group", $scope.criteria.group);
-				addCriteria(criteria, "permission", $scope.criteria.permission);
-				addCriteria(criteria, "dn", $scope.criteria.dn);
-				addCriteria(criteria, "lastname", $scope.criteria.lastname);
+				addCriteria(criteria, "name", $scope.criteria.name);
+				addCriteria(criteria, "code", $scope.criteria.code);
+				addCriteria(criteria, "category", $scope.criteria.category);
 			}
 			return criteria;
 		};

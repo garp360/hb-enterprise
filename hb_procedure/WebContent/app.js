@@ -2,6 +2,5 @@
 	'use strict';
 
 	angular
-	.module('hb.enterprise.surgica.data.procedure', [ 'ui.router', 'ngMessages', 'hb.enterprise.hosted' ]);
-
+	.module('hb.enterprise.surgica.data.procedure', [ 'ui.router', 'ngMessages', 'ngAnimate', 'firebase', 'hb.enterprise.hosted', 'ui.bootstrap', 'ui.router.modal' ]);
 })();
