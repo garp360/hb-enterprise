@@ -1,5 +1,5 @@
-<div ng-class="isSimpleSearch ? 'form-container search-form simple' : 'form-container search-form advanced'">
-	<form ng-show="isSimpleSearch">
+<div ng-class="isSimpleSearch ? 'hb-search form-container search-form simple' : 'hb-search form-container search-form advanced'">
+	<form class="simple-search-form" ng-show="isSimpleSearch">
 		<div class="form-group inline">
 			<label class="control-label">Global</label>
 			<div>
@@ -16,7 +16,7 @@
 			</div>
 		</div>
 	</form>
-	<form ng-show="!isSimpleSearch">
+	<form class="advanced-search-form" ng-show="!isSimpleSearch">
 		<div class="form-group inline">
 			<label for="name" class="control-label">Procedure Name:</label>
 			<div>

@@ -7,11 +7,13 @@ div.search-form, div.search-results {
 div.search-form.simple {
 	top: 3px;
 	height: 60px;
+	max-height: 60px;
 }
 
 div.search-form.advanced {
 	top: 3px;
 	height: 125px;
+	max-height: 125px;
 }
 
 div.search-results.simple {
@@ -42,3 +44,65 @@ div.form-container.search-form.advanced .control-label {
 .edit-form .control-label {
 	width: 150px;
 }
+
+/* 
+  Allow angular.js to be loaded in body, hiding cloaked elements until 
+  templates compile.  The !important is important given that there may be 
+  other selectors that are more specific or come later and might alter display.  
+ */
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
+.simple-search-form,
+.advanced-search-form {
+	position: absolute;
+}
+
+.simple-search-form.ng-hide-add,
+.advanced-search-form.ng-hide-add  {
+  -webkit-animation-name: show;
+  animation-name: show;
+  -webkit-animation-duration: .25s;
+  animation-duration: .25s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  }
+  @-webkit-keyframes hide {
+  0% {opacity: .25;}
+  100% {opacity: 1;}
+  }
+  @keyframes hide {
+  0% {opacity: .25;}
+  100% {opacity: 1;}
+  } 
+  
+  .simple-search-form.ng-hide-remove,
+.advanced-search-form.ng-hide-remove  {
+  -webkit-animation-name: hide;
+  animation-name: hide;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  }
+  @-webkit-keyframes show {
+  0% {
+  opacity: 0;
+  }
+  100% {
+  opacity: 0;
+  -webkit-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+  }
+  }
+  @keyframes show {
+  0% {
+  opacity: 0;
+  }
+  100% {
+  opacity: 0;
+  -webkit-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+  }
+  }

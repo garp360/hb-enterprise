@@ -62,7 +62,7 @@
 					if(criteria.hasOwnProperty(fields[i]) && criteria[fields[i]] && criteria[fields[i]].trim().length > 0) {
 						isEmpty = false;
 						break;
-					}
+					};
 				}
 				return isEmpty;
 			}

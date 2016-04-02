@@ -110,6 +110,6 @@ label {
 	margin-bottom: auto;	
 }
 
-.modal-footer {
+.modal-header, .modal-footer {
 	background-color: #f6f6f6;
 }

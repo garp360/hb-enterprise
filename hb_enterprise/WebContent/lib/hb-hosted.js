@@ -8,6 +8,7 @@
    	.controller('FooterController', FooterController)
 	.controller('HeaderController', HeaderController)
 	.controller('ToolBarController', ToolBarController);
+    
 	
 	ToolBarController.$inject = ['$scope', '$log', 'toolbar'];
 	function ToolBarController ($scope, $log, toolbar) 
