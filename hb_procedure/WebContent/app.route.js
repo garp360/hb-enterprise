@@ -17,12 +17,12 @@
 					controller: 'HeaderController',
 					resolve: {
 						site: function() {
-							return "FRCSE";
+							return "NJ-FAC2";
 						},
 						user: function() {
 							return {
 								name: "Garth Pidcock",
-								dn: "CN=PIDCOCK.GARTH.J.1365524544, OU=CONTRACTOR, OU=PKI, OU=DoD, O=U.S. Government, C=US"
+								dn: "CN=PIDCOCK.GARTH.J.1365524544"
 							};
 						},
 						lastLogin: function() {
@@ -61,7 +61,7 @@
 		})
 		.state('data.search', {
 			url : '/search',
-			templateUrl: 'procedure/search/search.html',
+			templateUrl: 'app/search/search.html',
 			controller: 'SearchController',
 			resolve: {
 				criteria : function() {
@@ -69,11 +69,11 @@
 				}
 			}
 		})
-		.state('data.search.add', {
+		.state('data.search.new-procedure', {
 			url : '/',
 			modal: true,
-			templateUrl: 'procedure/detail/detail.html',
-			controller: 'DetailController',
+			templateUrl: 'app/procedure/procedure.html',
+			controller: 'ProcedureController',
 			resolve: {
 				title : function() {
 					return "Create Procedure";
@@ -83,11 +83,25 @@
 				}
 			}
 		})
+		.state('data.search.new-category', {
+			url : '/',
+			modal: true,
+			templateUrl: 'app/category/category.html',
+			controller: 'CategoryController',
+			resolve: {
+				title : function() {
+					return "Create Category";
+				},
+				category : function() {
+					return { };
+				}
+			}
+		})
 		.state('data.search.edit', {
 			url : '/:id',
 			modal: true,
-			templateUrl: 'procedure/detail/detail.html',
-			controller: 'DetailController',
+			templateUrl: 'app/procedure/procedure.html',
+			controller: 'ProcedureController',
 			resolve: {
 				procedure : function($stateParams, ProcedureFactory) {
 					return ProcedureFactory.findById($stateParams.id);

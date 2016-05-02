@@ -1,0 +1,183 @@
+<!-- <div class="tabular-data-toolbar"> -->
+<!-- 	<table> -->
+<!-- 		<tr> -->
+<!-- 			<td align="right"> -->
+<!-- 				<button class="btn btn-default btn-tlbr" ng-click="remove()"><i class="fa fa-times fa-lg text-danger"></i></button> -->
+<!-- 				<a class="btn btn-default btn-tlbr" ui-sref="data.search.add"><i class="fa fa-plus fa-lg text-success"></i></a> -->
+<!-- 			</td> -->
+<!-- 		</tr> -->
+<!-- 	</table> -->
+<!-- </div> -->
+<div class="hb-search">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="btn-group">
+  				<button class="btn btn-menu dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    				File
+  				</button>
+  				<ul class="dropdown-menu multi-level">
+					<li class="dropdown-submenu"><a href="#">New</a>
+						<ul class="dropdown-menu">
+							<li><a ui-sref="data.search.new-procedure">Procedure</a></li>
+							<li><a ui-sref="data.search.new-category">Procedure Category</a></li>
+						</ul>
+					</li>
+				    <li role="separator" class="divider"></li>
+					<li><a href="#">Import</a></li>
+				    <li><a href="#">Export</a></li>
+				    <li role="separator" class="divider"></li>
+				    <li><a href="#">Print</a></li>
+				  </ul>
+			</div>
+			<div class="btn-group">
+  				<button class="btn btn-menu dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    				Edit
+  				</button>
+  				<ul class="dropdown-menu">
+				    <li><a href="#">Action</a></li>
+				    <li><a href="#">Another action</a></li>
+				    <li><a href="#">Something else here</a></li>
+				    <li role="separator" class="divider"></li>
+				    <li><a href="#">Separated link</a></li>
+				  </ul>
+			</div>
+			<div class="btn-group">
+  				<button class="btn btn-menu dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    				History
+  				</button>
+  				<ul class="dropdown-menu">
+				    <li><a href="#">Action</a></li>
+				    <li><a href="#">Another action</a></li>
+				    <li><a href="#">Something else here</a></li>
+				    <li role="separator" class="divider"></li>
+				    <li><a href="#">Separated link</a></li>
+				  </ul>
+			</div>
+			<div class="btn-group">
+  				<button class="btn btn-menu dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    				Search
+  				</button>
+  				<ul class="dropdown-menu">
+				    <li><a href="#">Action</a></li>
+				    <li><a href="#">Another action</a></li>
+				    <li><a href="#">Something else here</a></li>
+				    <li role="separator" class="divider"></li>
+				    <li><a href="#">Separated link</a></li>
+				  </ul>
+			</div>
+		</div>
+		<div class="col-md-6">
+			
+		</div>
+	</div>
+	<div class="hb-search-container">
+		<div ng-class="isSimpleSearch ? 'form-container search-form simple' : 'form-container search-form advanced'">
+			<form class="simple-search-form" ng-show="isSimpleSearch">
+				<div class="form-group inline">
+					<label class="control-label">Global</label>
+					<div>
+						<input type="text" ng-model="criteria.simple" class="form-control" style="width:300px;">
+					</div>
+					<div>
+						<button ng-click="search()" class="btn btn-default btn-xs">Search</button>
+					</div>
+					<div>
+						<button ng-click="clear()" class="btn btn-default btn-xs">Clear</button>
+					</div>
+					<div>
+						<button ng-click="toggleSearch()" class="btn btn-default btn-xs">Advanced</button>
+					</div>
+				</div>
+			</form>
+			<form class="advanced-search-form" ng-show="!isSimpleSearch">
+				<div class="form-group inline">
+					<label for="name" class="control-label">Procedure Name:</label>
+					<div>
+						<input type="text" ng-model="criteria.name" class="form-control" style="width:300px;">
+					</div>
+					<div>
+						<button ng-click="search()" class="btn btn-default btn-xs">Search</button>
+					</div>
+					<div>
+						<button ng-click="clear()" class="btn btn-default btn-xs">Clear</button>
+					</div>
+					<div>
+						<button ng-click="toggleSearch()" class="btn btn-default btn-xs">Simple</button>
+					</div>
+				</div>
+				<div class="form-group inline">
+					<label for="permission" class="control-label">Procedure Code:</label>
+					<div>
+						<input type="text" ng-model="criteria.code" class="form-control" style="width:300px;">
+					</div>
+				</div>
+				<div class="form-group inline">
+					<label for="permission" class="control-label">Category:</label>
+					<div>
+						<input type="text" ng-model="criteria.category" class="form-control" style="width:300px;">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div ng-class="isSimpleSearch ? 'search-results simple': 'search-results advanced'">
+		<div class="tabular-data no-toolbar">
+			<div class="tabular-data-header">
+				<table>
+					<colgroup>
+						<col width="45" />
+						<col width="250" />
+						<col width="60" />					
+						<col width="350" />
+						<col />
+					</colgroup>
+					<tbody>
+						<tr>
+							<th></th>
+							<th>Category</th>
+							<th>Code</th>
+							<th>Name</th>
+							<th>Description</th>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="tabular-data-content">
+				<table class="no-data" ng-show="!result.matches || !result.matches || result.matches.length <= 0">
+					<tr>
+						<th>{{searchResultsMessage}}</th>
+					</tr>
+				</table>
+				<table ng-show="result.matches && result.matches && result.matches.length > 0">
+					<colgroup>
+						<col width="45" />
+						<col width="250" />
+						<col width="60" />					
+						<col width="350" />
+						<col />
+					</colgroup>
+					<tbody>
+						<tr ng-repeat="px in result.matches | orderBy : ['category.name']">
+							<td>{{$index + 1}}</td>
+							<td class="align-left">{{px.category.name}}</td>
+							<td>{{px.code}}</td>
+							<td class="align-left">
+								<a ui-sref="data.search.edit({id : px.id})">{{px.name}}</a>
+							</td>
+							<td class="align-left">{{px.description}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="tabular-data-footer">
+				<table>
+					<tbody>
+						<tr>
+							<th><span ng-show="result.matches">{{result.matches.length}} of {{result.totalRecords}}</span></th>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

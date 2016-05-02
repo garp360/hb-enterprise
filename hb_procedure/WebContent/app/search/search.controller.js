@@ -12,6 +12,7 @@
 		$scope.criteria = criteria;
 		$scope.result = { };
 		$scope.isSimpleSearch = true;
+		$scope.searchResultsMessage = "";
 
 		// methods
 		$scope.search = search;
@@ -28,6 +29,11 @@
 			var criteria = buildCriteria();
 			ProcedureFactory.findByCriteria(criteria).then(function(procedures){
 				$scope.result = procedures;
+				if(procedures && procedures.length > 0) {
+					$scope.searchResultsMessage = "";
+				} else {
+					$scope.searchResultsMessage = "No records matching criteria";
+				}
 			}, function(errMsg) {
 				$scope.errorMessage = errMsg;
 			});
@@ -38,6 +44,7 @@
 			$scope.criteria = { };
 			$scope.result = { };
 			$scope.errorMessage = null;
+			$scope.searchResultsMessage = "";
 		};
 		
 		function add() {

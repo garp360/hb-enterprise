@@ -1,0 +1,36 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="cancel()">&times;</button>
+	<h4 class="modal-title">{{title}}</h4>
+</div>
+<div class="modal-body">
+	<form class="edit-form">
+		<div class="form-group inline">
+			<label for="name" class="control-label">Category Name:</label>
+			<div>
+				<input type="text" ng-model="category.name" class="form-control" style="width: 300px;">
+			</div>
+		</div>
+		<div class="form-group inline">
+			<label for="abbr" class="control-label">Abbreviation:</label>
+			<div>
+				<input type="text" ng-model="category.abbr" class="form-control" style="width: 300px;">
+			</div>
+		</div>
+		<div class="form-group inline">
+			<label for="description" class="control-label">Description:</label>
+			<div>
+				<textarea ng-model="procedure.description" class="form-control" style="width: 300px;" rows="3"></textarea>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+	<div class="pull-left">
+		<button ng-show="hasEdit" type="button" class="btn btn-default" ng-click="reset()">Reset</button>
+	</div>
+	<div class="pull-right">
+		<button ng-show="hasEdit && hasDelete" type="button" class="btn btn-default" ng-click="delete()">Delete</button>
+		<button ng-show="hasEdit" type="button" class="btn btn-primary" ng-click="save()">Save</button>
+		<button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+	</div>
+</div>

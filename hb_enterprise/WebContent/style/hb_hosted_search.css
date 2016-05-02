@@ -1,0 +1,117 @@
+div.hb-search,div.hb-search.no-toolbar {
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	background-color: #DEDEDE;
+}
+
+div.hb-search-container {
+	border:1px solid #999;
+	background-color: #FCFCFC;
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 35px;
+	bottom: 0px;
+}
+
+div.hb-search.no-toolbar>div.hb-search-container {
+	top: 0px;
+}
+
+div.search-form, div.search-results {
+	position: absolute;
+	left: 3px;
+	right: 3px;
+}
+
+div.search-form.simple,
+div.search-form.advanced {
+	top: 3px;
+	height: 60px;
+	max-height: 60px;
+	background-color: #DEDEDE;
+}
+
+div.search-results.simple,
+div.search-results.advanced {
+	top: 102px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	border: 1px solid #999999;
+}
+
+div.hb-search.no-toolbar>div.search-results.simple,
+div.hb-search.no-toolbar>div.search-results.advanced {
+	top: 67px;
+}
+
+div.form-container.search-form.simple .control-label,
+div.form-container.search-form.advanced .control-label {
+	width: 150px;
+}
+
+/* 
+  Allow angular.js to be loaded in body, hiding cloaked elements until 
+  templates compile.  The !important is important given that there may be 
+  other selectors that are more specific or come later and might alter display.  
+ */
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
+.simple-search-form,
+.advanced-search-form {
+	position: absolute;
+}
+
+.simple-search-form.ng-hide-add,
+.advanced-search-form.ng-hide-add  {
+	-webkit-animation-name: show;
+	animation-name: show;
+	-webkit-animation-duration: .25s;
+	animation-duration: .25s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+ }
+
+@-webkit-keyframes hide {
+	0% {opacity: .25;}
+	100% {opacity: 1;}
+}
+
+@keyframes hide {
+	0% {opacity: .25;}
+	100% {opacity: 1;}
+} 
+  
+.simple-search-form.ng-hide-remove,
+.advanced-search-form.ng-hide-remove  {
+	-webkit-animation-name: hide;
+	animation-name: hide;
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+}
+
+@-webkit-keyframes show {
+	0% {opacity: 0;}
+	100% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, 100%, 0);
+		transform: translate3d(0, 100%, 0);
+	}
+}
+  
+@keyframes show {
+	0% {opacity: 0;}
+	100% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, 100%, 0);
+		transform: translate3d(0, 100%, 0);
+	}
+}

@@ -36,6 +36,11 @@ div.tabular-data>div.tabular-data-header {
 	border-bottom: 1px solid #999999;
 }
 
+div.tabular-data.no-toolbar>div.tabular-data-header {
+	top:0px;
+	border-bottom: 1px solid #999999;
+}
+
 div.tabular-data>div.tabular-data-content {
 	top: 60px;
 	bottom: 30px;
@@ -43,9 +48,18 @@ div.tabular-data>div.tabular-data-content {
 	overflow: auto;
 }
 
+div.tabular-data.no-toolbar>div.tabular-data-content {
+	top: 30px;
+	bottom: 30px;
+	right: 0px;
+	overflow: auto;
+	background-color: #FCFCFC;
+}
+
 div.tabular-data>div.tabular-data-footer {
-	bottom:0px;
+	bottom:1px;
 	border-top: 1px solid #999999;
+	border-bottom: 1px solid #999999;
 }
 
 div.tabular-data>div.tabular-data-header>table,
@@ -106,8 +120,8 @@ div.tabular-data>div.tabular-data-content>table>tbody>tr>th,
 div.tabular-data>div.tabular-data-content>table>tbody>tr>td {
 	padding: 3px 5px;
 	border-right: 1px solid #f1f1f1;
-	border-bottom: 1px solid #a1a1a1;
-	border-left: 1px solid #a1a1a1;
+	border-bottom: 1px solid #d0d0d0;
+	border-left: 1px solid #d0d0d0;
 	background-color: transparent;
 	text-align: center;
 }
@@ -135,7 +149,7 @@ div.tabular-data>div.tabular-data-content>table>tbody>tr>td.fill {
 	border-right-width: 0px;
 	border-bottom-width: 0px;
 	background-color: #f5f5f5;
-	border-left: 1px solid #a1a1a1;
+	border-left: 1px solid #d0d0d0;
 }
 
 div.tabular-data>div.tabular-data-content>table>tbody>tr>th.align-left, 

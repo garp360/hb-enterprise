@@ -1,11 +1,11 @@
 (function() {
 	'use strict';
 
-	angular.module('hb.enterprise.surgica.data.procedure').controller('DetailController', DetailController);
+	angular.module('hb.enterprise.surgica.data.procedure').controller('ProcedureController', ProcedureController);
 
-	DetailController.$inject = [ '$scope', '$log', '$state', 'procedure', 'title' ];
+	ProcedureController.$inject = [ '$scope', '$log', '$state', 'procedure', 'title' ];
 
-	function DetailController($scope, $log, $state, procedure, title) 
+	function ProcedureController($scope, $log, $state, procedure, title) 
 	{
 		$scope.hasEdit = true;
 		$scope.hasDelete = true;
